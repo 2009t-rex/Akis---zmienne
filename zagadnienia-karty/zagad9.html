@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Honk&family=Rock+3D&display=swap" rel="stylesheet">
+<title>Gdzie Borys? 17:40 sobota</title>
+
+<style>
+    :root {
+        --primary-bg-color: white;
+        --primary-text-color: black;
+    }
+
+    body {
+        background: var(--primary-bg-color);
+        color: var(--primary-text-color);
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    #zmienTryb {
+        padding: 15px 30px;
+        font-size: 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background: var(--primary-text-color);
+        color: var(--primary-bg-color);
+        transition: 0.3s;
+    }
+
+    #zmienTryb::after{
+        content: "Zmień na tryb " attr(data-tryb);
+    }
+
+    #zmienTryb:hover {
+        transform: scale(2);
+    }
+</style>
+
+</head>
+<body>
+<h1 style="position: absolute; top: 0;">Tryb jasny i ciemny</h1>
+
+<button id="zmienTryb" data-tryb="ciemny" onclick="zmianaTrybu()"></button>
+
+<button id="powrot">
+    <a href="../index.html">Wróć</a>
+</button>
+
+<script>
+    const root = document.documentElement;
+    const button = document.getElementById("zmienTryb");
+
+    function zmianaTrybu(){
+        if(button.dataset.tryb == "ciemny"){
+            button.dataset.tryb = "jasny"
+        }
+        else{
+            button.dataset.tryb = "ciemny"
+        }
+        const obecnyTryb = button.dataset.tryb;
+        if (obecnyTryb == "jasny") {
+            // przejście na ciemny
+            root.style.setProperty("--primary-bg-color", "#1e1e1e");
+            root.style.setProperty("--primary-text-color", "#e6e6e6");
+        } else {
+            // przejście na jasny
+            root.style.setProperty("--primary-bg-color", "white");
+            root.style.setProperty("--primary-text-color", "black");
+        }
+    }
+</script>
+
+</body>
+</html>

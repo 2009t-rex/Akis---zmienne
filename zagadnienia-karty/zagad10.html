@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Honk&family=Rock+3D&display=swap" rel="stylesheet">
+
+<title>Borys będzie miał problemy - 18:10 sobota</title>
+
+<style>
+    body {
+        line-height: 1.6;
+    }
+
+    details {
+        margin: 20px;
+        width: 80vw;
+        border: 1px solid #aaa;
+        border-radius: 8px;
+        padding: 15px;
+        background-color: rgba(10,10,10,0.4);
+        color: whitesmoke;
+        font-size: 1.5em;
+    }
+
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+    code {
+        background: #f4f4f4;
+        padding: 3px 6px;
+        border-radius: 5px;
+    }
+
+    address {
+        font-style: normal;
+        background: #f0f0f0;
+        color: black;
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 10px;
+    }
+</style>
+
+</head>
+<body>
+
+<h1>Nowe znaczniki HTML, które uważam za warte uwagi: </h1>
+
+<details>
+    <summary>&lt;dfn&gt; — definicja pojęcia</summary>
+    <p>
+        Znacznik &lt;dfn&gt; służy do oznaczenia <strong>definiowanego pojęcia</strong>.
+        Rodzic &lt;dfn&gt; musi zawierać opis tego terminu.
+    </p>
+
+    <h2>1️⃣ Sam &lt;dfn&gt;</h2>
+    <p><dfn>CSS</dfn> służy do opisania jak element HTML powinien wyglądać na stronie.</p>
+
+    <h2>2️⃣ &lt;dfn&gt; + atrybut title</h2>
+    <p><dfn title="Cascading Style Sheets">CSS</dfn> służy do opisania jak element HTML powinien wyglądać na stronie.</p>
+
+    <h2>3️⃣ &lt;dfn&gt; z &lt;abbr&gt; w środku</h2>
+    <p><dfn><abbr title="Cascading Style Sheets">CSS</abbr></dfn> służy do opisania jak element HTML powinien wyglądać na stronie.</p>
+
+    <h2>4️⃣ &lt;dfn id="..."&gt; — odwoływanie się linkiem</h2>
+    <p><dfn id="html-def">CSS</dfn> służy do opisania jak element HTML powinien wyglądać na stronie.</p>
+
+    <p>To jest jakiś tekst...</p>
+    <p>To jest jakiś tekst...</p>
+    <p>Dowiedz się więcej o <a href="#html-def">CSS</a>.</p>
+</details>
+
+<details>
+    <summary>&lt;abbr&gt; — skróty, akronimy</summary>
+
+    <p>
+        Znacznik &lt;abbr&gt; służy do oznaczania skrótów.  
+        Najczęściej używany z atrybutem title, aby po najechaniu myszką było widać rozwinięcie.
+    </p>
+
+    <p>
+        <abbr title="World Health Organization">WHO</abbr> została założona w 1948.
+    </p>
+
+    <h2>Połączenie &lt;abbr&gt; z &lt;dfn&gt;</h2>
+    <p><dfn><abbr title="Cascading Style Sheets">CSS</abbr></dfn> służy do opisania jak element HTML powinien wyglądać na stronie.</p>
+</details>
+
+<details>
+    <summary>&lt;address&gt; — dane kontaktowe autora</summary>
+
+    <p>
+        Znacznik &lt;address&gt; służy do podawania danych autora lub kontaktowych.  
+        Automatycznie dodaje odstęp przed i po (jakby dodawał ukryte &lt;br&gt;).
+    </p>
+
+    <address>
+        Strona wykonana przez: <br>
+        <strong>Jan Kowalski</strong> <br>
+        Email: jan.kowalski@example.com <br>
+        Miasto: Warszawa
+    </address>
+
+</details>
+
+<details>
+    <summary>&lt;details&gt; i &lt;summary&gt; — rozwijane sekcje bez JS</summary>
+
+    <p>
+        Znaczniki &lt;details&gt; oraz &lt;summary&gt; tworzą
+        <strong>rozwijane, interaktywne sekcje</strong> bez potrzeby używania JavaScriptu.
+    </p>
+
+    <h2>Jak to działa?</h2>
+    <ul>
+        <li>&lt;summary&gt; jest nagłówkiem, który można kliknąć.</li>
+        <li>Po kliknięciu rozwijana jest zawartość &lt;details&gt;.</li>
+        <li>Można dodać atrybut open, aby sekcja była rozwinięta od startu.</li>
+    </ul>
+
+    <h2>Przykład</h2>
+    <pre>
+&lt;details&gt;
+    &lt;summary&gt;Kliknij, aby rozwinąć&lt;/summary&gt;
+    &lt;p&gt;To jest zawartość sekcji.&lt;/p&gt;
+&lt;/details&gt;</pre>
+
+    <p>
+        Elementy te posiadają natywną obsługę dostępności (klawiatura, aria-expanded),
+        więc są dobrym wyborem zamiast własnych skryptów do rozwijania treści.
+    </p>
+</details>
+
+<details>
+    <summary>&lt;hgroup&gt; — grupa nagłówków (wycofany)</summary>
+
+    <p>
+        &lt;hgroup&gt; miał służyć do grupowania nagłówków (np. tytułu i podtytułu)
+        jako jednej logicznej jednostki.  
+        <strong>Obecnie jest wycofany</strong> z obecnego standardu W3C HTML5 i nie powinien być używany.
+    </p>
+
+    <h2>Alternatywa</h2>
+    <pre>
+&lt;header&gt;
+    &lt;h1&gt;Tytuł artykułu&lt;/h1&gt;
+    &lt;p&gt;Podtytuł&lt;/p&gt;
+&lt;/header&gt;</pre>
+</details>
+
+<details>
+    <summary>&lt;mark&gt; — wyróżnianie tekstu</summary>
+
+    <p>
+        &lt;mark&gt; podświetla fragment tekstu — zwykle żółtym tłem.
+        Oznacza coś istotnego lub znalezione słowo (np. podczas wyszukiwania).
+    </p>
+    <h2>Domyślne wartości CSS</h2>
+    <pre>
+mark {
+  background-color: yellow;
+  color: black;
+}</pre>
+
+    <h2>Przykład</h2>
+    <pre>
+&lt;p&gt;To jest &lt;mark&gt;<mark>ważne</mark>&lt;/mark&gt; słowo.&lt;/p&gt;</pre>
+</details>
+
+<details>
+    <summary>&lt;noscript&gt; — dla użytkowników bez JavaScriptu</summary>
+
+    <p>
+        &lt;noscript&gt; wyświetla treść tylko wtedy,
+        gdy JavaScript jest wyłączony lub niedostępny.
+    </p>
+
+    <h2>Przykład</h2>
+    <pre>
+&lt;noscript&gt;
+    &lt;p&gt;Musisz włączyć JavaScript, aby korzystać z tej strony.&lt;/p&gt;
+&lt;/noscript&gt;</pre>
+</details>
+
+<details>
+    <summary>&lt;svg&gt; — grafika wektorowa</summary>
+
+    <p>
+        &lt;svg&gt; służy do rysowania grafiki wektorowej bez utraty jakości.
+        Idealne do ikon, ilustracji, wykresów.
+    </p>
+
+    <h2>Przykład</h2>
+    <pre>
+&lt;svg width="100" height="100" viewBox="0 0 24 24"&gt;
+    &lt;circle cx="12" cy="12" r="10" fill="red" /&gt;
+&lt;/svg&gt;</pre>
+<svg width="100" height="100" viewBox="0 0 24 24" style="margin: 10px;">
+    <circle cx="12" cy="12" r="10" fill="red" />
+</svg>
+</details>
+
+<details>
+    <summary>&lt;output&gt; — wynik obliczeń</summary>
+
+    <p>
+        &lt;output&gt; służy do wyświetlania wyników — zwykle z formularzy
+        lub obliczeń dynamicznych (zwykle z JS).
+    </p>
+
+    <h2>Prosty przykład</h2>
+    <pre>
+&lt;label&gt;A: &lt;input id="a" type="number" value="2"&gt;&lt;/label&gt;
+&lt;label&gt;B: &lt;input id="b" type="number" value="3"&gt;&lt;/label&gt;
+&lt;output id="sum" for="a b"&gt;5&lt;/output&gt;</pre>
+</details>
+<details>
+    <summary>&lt;dialog&gt; — okno dialogowe</summary>
+
+    <p>
+        Znacznik &lt;dialog&gt; służy do tworzenia natywnych,
+        wbudowanych w HTML okien dialogowych (modalnych i niemetalnych).
+        Można je otwierać i zamykać za pomocą JavaScriptu.
+    </p>
+
+    <h2>Przykład podstawowy</h2>
+    <pre>
+&lt;dialog id="okno"&gt;
+    &lt;p&gt;To jest okno dialogowe.&lt;/p&gt;
+    &lt;button onclick="okno.close()"&gt;Zamknij&lt;/button&gt;
+&lt;/dialog&gt;
+
+&lt;button onclick="okno.showModal()"&gt;Otwórz okno&lt;/button&gt;
+    </pre>
+
+    <p>
+        showModal() — otwiera okno jako modal
+        <br>
+        close() — zamyka okno
+    </p>
+
+</details>
+<button id="powrot">
+    <a href="../index.html">Wróć</a>
+</button>
+</body>
+</html>

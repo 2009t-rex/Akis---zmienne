@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Przykład zmienne</title>
+
+    <style>
+        :root{
+            --kolor-glowny: #0a84ff;
+            --tekst: #ffffff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4ff;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #003b70;
+            margin-bottom: 20px;
+        }
+        .card {
+            width: 240px;
+            padding: 20px;
+            margin: 12px 0;
+            border-radius: 12px;
+            color: var(--tekst);
+            background-color: var(--kolor-glowny);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .card--ciemna {
+            --kolor-glowny: #003f70;
+            background-color: var(--kolor-glowny);
+        }
+        button{
+            background-color: navy;
+            color: goldenrod;
+            padding: 10px;
+            font-size: 1.3em;
+            border: dotted firebrick;
+            border-radius: 20px;
+            margin: 10px;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:link{
+            color: goldenrod;
+        }
+        a:visited{
+            color: goldenrod;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Przykład działania var() w CSS</h1>
+
+    <div class="card">
+        <strong>Karta 1</strong><br>
+        Używa globalnej zmiennej <br><code>--kolor-glowny</code>.
+    </div>
+
+    <div class="card card--ciemna">
+        <strong>Karta 2</strong><br>
+        Ta karta nadpisuje zmienną <br>
+        <code>--kolor-glowny</code>
+        <br>
+        lokalnie na ciemniejszy odcień.
+    </div>
+    <button>
+        <a href="../zagad1.html">Powrót</a>
+    </button>
+</body>
+</html>

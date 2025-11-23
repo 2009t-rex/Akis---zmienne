@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(#8A2BE2,  #007BA7, #8A2BE2);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+h1{
+    text-align: center;
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-size: 100px;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+}
+main{
+    width: 60vw;
+    color: whitesmoke;
+
+}
+section{
+    border: 5px white dashed;
+    border-radius: 10px;
+    font-size: 1.5em;
+    background-color: rgba(10,10,10,0.4);
+    margin: 20px;
+    padding: 10px;
+    color: whitesmoke;
+}
+
+code{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+pre{
+    background-color: darkgray;
+    width: 90%;
+    padding: 20px;
+}
+.wazne{
+    border: 5px firebrick dashed;
+    border-radius: 10px;
+    font-size: 2em;
+    background-color: rgba(10,10,10,0.4);
+    margin: 20px;
+    padding: 10px;
+    font-variant: small-caps;
+}
+h3{
+        text-align: center;
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-size: 80px;
+    font-weight: 200;
+    font-style: normal;
+    font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+}
+li{
+    margin-left: 40px;
+}
+button{
+    background-color: navy;
+    color: goldenrod;
+    padding: 10px;
+    font-size: 1.3em;
+    border: dotted firebrick;
+    border-radius: 20px;
+    margin: 10px;
+}
+a{
+    text-decoration: none;
+}
+a:link{
+    color: goldenrod;
+}
+a:visited{
+    color: goldenrod;
+}
+#powrot{
+    position: fixed;
+    top: 0;
+    right: 0;
+}

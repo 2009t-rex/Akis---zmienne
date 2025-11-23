@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl-pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Rock+3D&display=swap" rel="stylesheet">
+
+    <title>Borys 16:16 sobota - "dzis"</title>
+
+    <style>
+        .podglad p::after {
+            content: " to " attr(data-marka-auta) ".";
+        }
+        #podglad p::after {
+            content: " to " attr(data-marka-auta) ".";
+        }
+    </style>
+</head>
+<body>
+
+<h1>Data-* w CSS i JavaScript</h1>
+
+<main>
+
+    <section>
+        <p>
+            Atrybuty <dfn>data-*</dfn> można wykorzystywać nie tylko do przechowywania danych,
+            ale także do stylowania elementów w CSS oraz odczytywania ich w JavaScript.
+        </p>
+    </section>
+
+    <h3>Data-* w CSS</h3>
+
+    <section>
+        <p>
+            Do atrybutu <code>data-*</code> odwołujemy się tak samo jak do każdego innego atrybutu.
+            W CSS możemy wykorzystać funkcję <code>attr()</code>, aby wstawić wartość atrybutu
+            np. do pseudoelementu <code>::after</code>.
+        </p>
+    </section>
+
+    <section>
+        <p>Przykład:</p>
+        <code><pre>
+p::after {
+    content: " to " attr(data-marka-auta) ".";
+}
+        </pre></code>
+
+        <p>
+            W tym przykładzie po każdym akapicie pojawi się automatycznie informacja,
+            jakie kto ma auto — wszystko pobrane z atrybutu <code>data-marka-auta</code>.
+        </p>
+    </section>
+
+    <h3>Data-* w HTML</h3>
+
+    <section>
+        <code><pre>
+&lt;p data-marka-auta="Volvo"&gt;Auto Mateusza&lt;/p&gt;
+&lt;p data-marka-auta="BMW"&gt;Auto Bartka&lt;/p&gt;
+&lt;p data-marka-auta="Tesla"&gt;Auto Tomka&lt;/p&gt;
+        </pre></code>
+    </section>
+
+    <section class="podglad">
+
+        <p data-marka-auta="Volvo">Auto Mateusza</p>
+        <p data-marka-auta="BMW">Auto Bartka</p>
+        <p data-marka-auta="Tesla">Auto Tomka</p>
+
+    </section>
+
+    <h3>Dodajemy kolejny element za pomocą JavaScript</h3>
+
+    <section>
+        <p>
+            Teraz dodamy nową osobę — Kamila — który ma Bugatti.
+            Nie musimy zmieniać HTML. Zrobimy to dynamicznie za pomocą JavaScript.
+        </p>
+    </section>
+
+    <section>
+        <code><pre>
+let paragrafKamila = document.createElement("p");
+paragrafKamila.textContent = "Auto Kamila";
+paragrafKamila.dataset.markaAuta = "Bugatti";
+
+document.body.appendChild(paragrafKamila);
+        </pre></code>
+
+        <p>
+            W ten sposób stworzyliśmy nowy element, ustawiliśmy mu atrybut
+            <code>data-marka-auta</code> i dodaliśmy go na stronę — 
+            a CSS automatycznie dopisał informacje po akapicie.
+        </p>
+    </section>
+
+    <h3>Podgląd działania</h3>
+
+    <section id="podglad">
+
+        <p data-marka-auta="Volvo">Auto Mateusza</p>
+        <p data-marka-auta="BMW">Auto Bartka</p>
+        <p data-marka-auta="Tesla">Auto Tomka</p>
+
+    </section>
+
+</main>
+
+<button id="powrot">
+    <a href="../index.html">Wróć</a>
+</button>
+
+<script>
+    let paragrafKamila = document.createElement("p");
+    paragrafKamila.textContent = "Auto Kamila";
+    paragrafKamila.dataset.markaAuta = "Bugatti";
+    document.getElementById("podglad").appendChild(paragrafKamila);
+</script>
+
+</body>
+</html>

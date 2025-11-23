@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Rock+3D&display=swap" rel="stylesheet">
+    <title>Brak Borysa 17:15 sobota</title>
+    <style>
+        .boxcontainer{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .box {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            background: var(--box-color, grey);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ćwiczenie data-* + JS</h1>
+    <section>
+        <p>Proste zadanie każdy kwadrat ma atrybut data-* z kolorem wyświetlonym na kwadracie.</p>
+        <p>JavaScript pobiera wartość data (za pomocą dataset) do zmiennej i przypisuje tłu tą zmienną.</p>
+    </section>
+    <div class="boxcontainer">
+        <div class="box" data-kolor="red">RED</div>
+        <div class="box" data-kolor="green">GREEN</div>
+        <div class="box" data-kolor="blue">BLUE</div>
+        <div class="box" data-kolor="orange">ORANGE</div>
+    </div>
+
+<button id="powrot">
+    <a href="../index.html">Wróć</a>
+</button>
+    
+    <script>
+        const boxy = document.querySelectorAll(".box");
+
+        boxy.forEach(box => {
+            const kolor = box.dataset.kolor;
+            box.style.setProperty("--box-color", kolor);
+        });
+    </script>
+</body>
+</html>

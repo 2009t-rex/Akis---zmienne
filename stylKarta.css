@@ -1,0 +1,115 @@
+.card {
+  position: relative;
+  width: 190px;
+  height: 254px;
+  background: #f00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 60px;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg,#03a9f4,#ff0058);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg,#03a9f4,#ff0058);
+  filter: blur(30px);
+}
+
+.card b {
+  position: absolute;
+  inset: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.card .content {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content .title {
+  position: relative;
+  color: #fff;
+  font-weight: 500;
+  line-height: 1em;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+}
+
+.content .title::before {
+    content: attr(data-zagadnienie);
+}
+
+#komora{
+  width: 60vw;
+  display: grid;
+  grid-template-columns: repeat(5,auto);
+  gap: 20px;
+  justify-content: center;
+}
+
+body{
+    background: radial-gradient(circle at right, #8A2BE2, mediumvioletred, #007BA7, royalblue,Indianred,lightcoral, #8A2BE2);
+    height: 200vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card.is-clicked {
+    cursor: auto;
+    pointer-events: auto;
+  transform: scale(5);
+  z-index: 5;
+  box-shadow: 0 18px 40px rgba(2,6,23,0.6);
+}
+
+.card.is-clicked.bounce {
+  transition: transform 40s cubic-bezier(.2,.8,.25,1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+  .card.is-clicked { transform: none; box-shadow: 0 6px 18px rgba(2,6,23,0.5); }
+}
+button{
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.card {
+  transition: transform 350ms cubic-bezier(.2,.9,.3,1),
+              box-shadow 350ms cubic-bezier(.2,.9,.3,1);
+  transform-origin: center;
+  box-shadow: 0 8px 22px rgba(2,6,23,0.35);
+}
+
+/* karta użyta — nie blokujemy transformów */
+.card.uzyta {
+  opacity: 0.5;
+  cursor: default;
+  transform: none;
+}

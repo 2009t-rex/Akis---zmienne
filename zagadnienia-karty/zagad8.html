@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pl-pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zmienne CSS + JavaScript + Media Queries</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Rock+3D&display=swap" rel="stylesheet">
+    <style>
+
+        :root {
+            --primary-podglad-color: red;
+            --primary-box-bg-color: blue;
+        }
+        .box {
+            --fontsize: 20px;
+            padding: 20px;
+            background: var(--primary-box-bg-color);
+            margin-top: 20px;
+            font-size: var(--fontsize);
+            border-radius: 10px;
+        }
+        .podglad{
+            background-color: var(--primary-podglad-color);
+        }
+        @media screen and (min-width: 1600px) {
+            :root {
+                --primary-box-bg-color: red;
+            }
+            .box{
+                --fontsize: 50px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Zmienne CSS w JavaScript i Media Queries</h1>
+
+<main>
+
+    <section>
+        <p>
+            Zmienne <dfn>CSS</dfn> można w prosty sposób odczytywać i modyfikować
+            za pomocą JavaScript. Umożliwia to dynamiczną zmianę wyglądu strony.
+        </p>
+    </section>
+
+    <h3>Pobieranie zmiennych do JS i zmiana ich wartości</h3>
+
+    <section>
+        <p>Przykład kodu:</p>
+
+        <code><pre>
+let root = document.querySelector(":root");
+root.style.setProperty('--primary-bg-color', 'green');
+        </pre></code>
+
+        <p>
+            W powyższym przykładzie pobieramy element <code>:root</code> i za pomocą
+            <code>setProperty()</code> ustawiamy nową wartość zmiennej —
+            dzięki temu cały wygląd zależny od tej zmiennej natychmiast się aktualizuje.
+        </p>
+
+        <button id="changeToGreen">Zmień tło na zielone</button>
+        <button id="changeToBlue">Zmień tło na niebieski</button>
+    </section>
+
+    <section class="podglad">
+        <div style="text-align: center; padding: 20px; font-size: 1.5em;">To jest przykład z JavaScript</div>
+    </section>
+    <h3>Zmienna zależna od rozmiaru ekranu</h3>
+
+    <section>
+        <p>
+            Zmienne CSS współpracują z <strong>media queries</strong>.  
+            Dzięki temu możemy zmieniać wartości zmiennych w zależności od wielkości ekranu.
+        </p>
+
+        <code><pre>
+:root {
+    --primary-bg-color: blue;
+}
+
+body {
+    background: var(--primary-bg-color);
+}
+
+.box {
+    --fontsize: 20px;
+    font-size: var(--fontsize);
+}
+
+@media screen and (min-width: 1600px) {
+    :root {
+        --primary-bg-color: red;
+    }
+
+    .box {
+        --fontsize: 50px;
+    }
+}
+        </pre></code>
+
+        <p>
+            Jeśli okno ma mniej niż <strong>1600px</strong>, tło jest niebieskie, a czcionka ma 20px.  
+            Jeśli jest większe — tło zmienia się na czerwone, a czcionka rośnie do 50px.
+        </p>
+    </section>
+
+    <h3>Podgląd</h3>
+
+    <section>
+        <div class="box">To jest przykład tekstu i backgrounda zależnego od zmiennych <code>--fontsize</code><code>--primary-bg-color</code></div>
+    </section>
+
+</main>
+
+<button id="powrot">
+    <a href="../index.html">Wróć</a>
+</button>
+
+<script>
+    // pobieramy :root
+    let root = document.querySelector(":root");
+
+    // po kliknięciu zmieniamy kolor tła z JS
+    document.getElementById("changeToGreen").addEventListener("click", () => {
+        root.style.setProperty('--primary-podglad-color', 'green');
+    });
+    document.getElementById("changeToBlue").addEventListener("click", () => {
+        root.style.setProperty('--primary-podglad-color', 'blue');
+    });
+</script>
+
+</body>
+</html>

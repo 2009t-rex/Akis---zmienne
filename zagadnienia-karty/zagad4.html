@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl-pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Twoje czcionki -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Rock+3D&display=swap" rel="stylesheet">
+
+    <title>Brak Borysa — 16 sobota</title>
+</head>
+<body>
+
+    <h1>Atrybut <dfn>data-*</dfn></h1>
+
+    <main>
+
+        <section>
+            <p>
+                Atrybut <dfn>data-*</dfn> jest to atrybut globalny, co oznacza, że może wystąpić
+                w <strong>każdym</strong> znaczniku HTML.  
+                Pozwala on osadzić własne, dodatkowe informacje na wybranym elemencie.
+            </p>
+        </section>
+
+        <section>
+            <p>
+                Wartości zapisane w atrybutach <code>data-*</code> mogą nadawać
+                dodatkowy kontekst informacjom w znaczniku, a także być później
+                wykorzystane w JavaScript lub CSS.
+            </p>
+        </section>
+
+        <section>
+            <p>
+                Informacje przechowywane w atrybutach <dfn>data-*</dfn> są
+                <strong>prywatne dla danej strony lub aplikacji</strong> — 
+                nie są one wysyłane nigdzie indziej.
+            </p>
+        </section>
+
+        <h1>Zasady zapisu</h1>
+
+        <section>
+            <ul>
+                <li>
+                    nazwa atrybutu nie może zawierać wielkich liter
+                    (np. <code>data-Imie</code> ❌, <code>data-imie</code> ✔);
+                </li>
+                <li>
+                    po przedrostku <code>data-</code> musi wystąpić przynajmniej jeden znak;
+                </li>
+                <li>
+                    wartość atrybutu jest zawsze <strong>stringiem</strong>
+                    — nawet jeśli wpiszesz liczbę.
+                </li>
+            </ul>
+        </section>
+
+        <h3>Przykład zapisu</h3>
+
+        <section>
+            <code>
+                <pre>
+&lt;p data-marka-auta="Volvo"&gt;Auto Mateusza&lt;/p&gt;
+&lt;p data-marka-auta="BMW"&gt;Auto Bartka&lt;/p&gt;
+&lt;p data-marka-auta="Tesla"&gt;Auto Tomka&lt;/p&gt;
+                </pre>
+            </code>
+        </section>
+
+        <section>
+            <p>
+                W powyższym przykładzie każdemu akapitowi przypisano 
+                własną markę auta poprzez atrybut <code>data-marka-auta</code>
+                Te dane możemy następnie odczytać za pomocą JavaScript
+                (np. <code>element.dataset.markaAuta</code>) lub wykorzystać w CSS.
+            </p>
+        </section>
+    </main>
+
+    <button id="powrot">
+        <a href="../index.html">Wróć</a>
+    </button>
+
+</body>
+</html>

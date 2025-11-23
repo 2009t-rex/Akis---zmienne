@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="Pl-pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Rock+3D&display=swap" rel="stylesheet">
+    <title>Borysa jeszcze nie ma - 15 sobota</title>
+</head>
+<body>
+    <h1>Zmienne</h1>
+    <main>
+        <section>
+            <p>
+                <dfn>Zmienne w CSS</dfn>, tak jak w innych językach, które znamy mają zasięg globalny i lokalny. Do zmiennych globalnych można się odwołać w całym dokumencie, a do lokalnych tylko w danym selektorze, gdzie ją zadeklarowaliśmy.
+            </p>
+        </section>
+        <section>
+            <p>
+                Zmienne globalne tworzymy w środku selektora :root - pseudo klasa połączona z elementem głównym dokumentu strony. (w HTML to zawsze znacznik &lthtml&gt) Przykład zapisu:
+            </p>
+            <code>
+            <pre>
+    :root{
+        --przyklad-zmiennej-globalnej: wartosc;
+    }</pre>
+            </code>
+        </section>
+        <section>
+            <p>
+                Zmienne lokalne tworzymy w selektorze, gdzie będzie ona użyta:
+            </p>
+            <code>
+                <pre>
+    p{
+        --przyklad-zmiennej-lokalnej: wartosc;
+    }</pre>
+            </code>
+        </section>
+        <h1>Ważne!</h1>
+        <div class="wazne">
+            Nazwa zmiennej musi zaczynać się od -- w innym wypadku nie zadziała.
+            <br>
+            Nazwa jest wrażliwa na wielkość liter.
+        </div>
+        <h3>Przykład tworzenia zmiennych</h3>
+        <section>
+        <code>
+            <pre>
+    :root {
+        --primary-bg-color: green; 
+    }
+
+    .note {
+        --note-bg: yellow; 
+    }</pre>
+        </code>
+        </section>
+        <h1>Funkcja <dfn>var()</dfn></h1>
+        <section>
+    <p>
+        Służy do pobierania wartości zmiennej CSS i podstawiania jej w danym miejscu stylu.
+        Dzięki temu możemy zarządzać wieloma elementami jednocześnie poprzez zmianę jednej wartości.
+    </p>
+</section>
+
+<section>
+    <p>
+        Składnia funkcji wygląda następująco:
+    </p>
+
+    <code><pre>
+var(nazwa-zmiennej, [wartość-zapasowa])</pre>
+    </code>
+
+    <p>
+        <strong>nazwa-zmiennej</strong> — wymagana. Nazwa zmiennej, zawsze poprzedzona dwoma myślnikami.<br>
+        <strong>wartość-zapasowa</strong> — opcjonalna. Używana tylko jeśli zmienna nie istnieje lub jest niepoprawna.
+    </p>
+</section>
+
+<section>
+    <p>
+        Zalety korzystania z funkcji <dfn>var()</dfn>:
+    </p>
+    <ul>
+        <li>kod jest łatwiejszy do aktualizacji (zmiana jednego miejsca — efekt w wielu elementach);</li>
+        <li>kod jest czytelniejszy, bo wartości mają swoje opisowe nazwy;</li>
+        <li>łatwiejsze tworzenie wariantów kolorystycznych lub motywów;</li>
+        <li>zmienne lokalne mogą nadpisywać globalne, co pozwala tworzyć wyjątkowe przypadki.</li>
+    </ul>
+</section>
+
+<section>
+    <p>
+        <strong>Przykład użycia:</strong>
+    </p>
+
+    <code><pre>
+:root{
+    --kolor-glowny: #0a84ff;
+}
+
+.card {
+    background-color: var(--kolor-glowny);
+}
+
+/* lokalne nadpisanie zmiennej */
+.card--ciemna {
+    --kolor-glowny: #003f70;
+    background-color: var(--kolor-glowny);
+}
+    </pre></code>
+
+    <p>
+        W powyższym przykładzie wszystkie elementy <code>.card</code> używają zmiennej 
+        <code>--kolor-glowny</code> zdefiniowanej globalnie, ale element z klasą 
+        <code>.card--ciemna</code> deklaruje tę samą zmienną lokalnie, więc jej wartość
+        nadpisuje tę globalną — i tylko ten jeden element ma ciemniejszy kolor.
+    </p>
+    <button>
+        <a href="Przykłady/przyklad01.html">Zobacz przykład</a>
+    </button>
+</section>
+    </main>
+    <button id="powrot">
+        <a href="../index.html">Wróć</a>
+    </button>
+</body>
+</html>
