@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borys przybył i wysłał!!!!</title>
+    <style>
+        *{
+            font-family: monospace;
+        }
+        body{
+            background:linear-gradient(grey,rgb(25, 25, 25));
+            background-repeat: no-repeat;
+            height: 100%;
+            counter-reset: licznik;
+        }
+        .kod{
+            
+            background: linear-gradient(rgb(201, 255, 214), rgb(87, 233, 116));
+            padding: 1em;
+            border-radius: 1em;
+            border: 2px dashed black;
+            width: 50%;
+            font-size: 20px;
+            margin: 1em;
+            box-shadow: 5px 5px 12px;
+        }
+        .idk{
+            width: 50%;
+            border: 2px dashed black;
+            padding: 1em;
+            border-radius: 1em;
+            background: linear-gradient(rgb(255, 248, 177), rgb(254, 241, 89));
+            font-size: 20px;
+            margin: 1em;
+            box-shadow: 5px 5px 12px;
+        }
+        .glowne{
+            display: flex;
+            flex-direction: row;
+            height: fit-content;
+        }
+        h1{
+            text-align: center;
+        }
+        h2::before{
+            counter-increment: licznik;
+            content: "Rozdział " counter(licznik) " ";
+        }
+        .definicja{
+            border: 2px dashed black;
+            border-radius: 1em;
+            background: linear-gradient(rgb(212, 212, 212), rgb(167, 167, 167));
+            font-size: 20px;
+            padding: 1em;
+            text-align: justify;
+            margin: 1em;
+            box-shadow: 5px 5px 12px;
+        }
+        .opis{
+            border: 2px dashed black;
+            border-radius: 1em;
+            font-size: 20px;
+            background: linear-gradient(rgb(157, 157, 157), lightgrey);
+            padding: 1em;
+            margin: 1em;
+            box-shadow: 5px 5px 12px;
+        }
+        .opis:hover, .definicja:hover, .glowne:hover, .idk:hover, .kod:hover, .zadanko1:hover{
+            box-shadow: none;
+            transition: 0.4s;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="definicja">
+        <h1>Czym jest i do czego służy counter w css?</h1>
+        <p>Counter w CSS to <b>licznik</b>, który pozwala <b>automatycznie numerować elementy</b> na stronie bez użycia JavaScriptu. Działa jak <b>zmienna przechowująca liczbową wartość</b>, którą można <b>resetować, zwiększać i wyświetlać</b> w treści elementu (np. przez ::before).
+        Używa się go najczęściej do <b>automatycznego numerowania nagłówków, list, sekcji lub przypisów</b>, dzięki czemu można tworzyć <b>spójne i dynamiczne oznaczenia w strukturze dokumentu</b>.</p>
+    </div>
+    <div class="opis">
+        <code>
+            <b>counter-reset</b> - reset licznika <br>
+            <b>counter-increment</b> - licznik + 1 <br>
+            <b>content</b> - zawartość wypisanego countera z tekstem <br><br>
+            Pierwszy, "zewnętrzny" counter-reset jest w body, dlatego zeruje się tylko na początku, ponieważ
+            jest tylko 1 body. Drugi, "wewnętrzny" zeruje sie z każdym kolejnym h2. W h3:before zwiększa się licznik "wewnętrzny" a w 
+            h2:before licznik "zewnętrzny", podobnie jak content.
+        </code>
+    </div>
+    <div class="glowne">
+        <div class="idk">
+            <h1>Przykład</h1>
+            <h2>Wstęp</h2>
+            <h2>Rozwinięcie</h2>
+            <h2>Zakończenie</h2>
+            <h2>Wstęp</h2>
+            <h2>Rozwinięcie</h2>
+            <h2>Zakończenie</h2>
+
+        </div>
+        <div class="kod">
+            <h1>Kod</h1>
+            <code>
+            body{ <br>
+                counter-reset: licznik; <br>
+            } <br>
+            h2::before{ <br>
+                counter-increment: licznik; <br>
+                content: "Rozdział " counter(licznik) " "; <br>
+            } <br>
+        </code>
+    </div>
+    </div>
+</body>
+</html>
