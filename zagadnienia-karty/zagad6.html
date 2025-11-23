@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background:linear-gradient(rgb(255, 180, 41),rgb(255, 54, 54));
+            background-repeat: no-repeat;
+            height: 150vh;
+            counter-reset: m-licznik;
+        }
+        h2{
+            counter-reset: m2-licznik;
+        }
+        h2::before{
+            counter-increment: m-licznik;
+            content: "Rozdział " counter(m-licznik) " ";
+        }
+        h3::before{
+            counter-increment: m2-licznik;
+            content: "Podrozdział " counter(m-licznik) "." counter(m2-licznik) " ";
+        }
+        .glowne{
+            border: 3px dashed black;
+            border-radius: 1em;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: fit-content;
+            margin: auto;
+            margin-top: 1em;
+            padding: 1em 4em 1em 4em;
+        }
+        .content{
+            margin: 20px;
+            display: none;
+            border: 3px dashed black;
+            background: linear-gradient(lightgrey, rgb(46, 46, 46));
+            border-radius: 1em;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="glowne">
+        <h1>Zadanie</h1>
+            <h2>Wstęp</h2>
+            <h3>x</h3>
+            <h2>Rozwinięcie</h2>
+            <h3>x</h3>
+            <h3>x</h3>
+            <h2>Zakończenie</h2>
+            <h2>Wstęp</h2>
+            <h3>x</h3>
+            <h3>x</h3>
+            <h3>x</h3>
+            <h3>x</h3>
+            <h2>Rozwinięcie</h2>
+            <h2>Zakończenie</h2>
+    </div>
+    <br>
+    <div class="rozwiazanie">
+        <button class="toggle">
+            Pokaż rozwiązanie.
+        </button>
+        <br>
+        <div class="content">
+            <p>Pierwszy, "zewnętrzny" counter-reset jest w body, dlatego zeruje się tylko na początku, ponieważ
+                jest tylko 1 body. Drugi, "wewnętrzny" zeruje sie z każdym kolejnym h2. W h3:before zwiększa się licznik "wewnętrzny" a w 
+                h2:before licznik "zewnętrzny", podobnie jak content.
+                <br>
+            </p>
+        body{ <br>
+            counter-reset: m-licznik; <br>
+        } <br>
+        h2{ <br>
+            counter-reset: m2-licznik; <br>
+        } <br>
+        h2::before{ <br>
+            counter-increment: m-licznik; <br>
+            content: "Rozdział " counter(m-licznik) " "; <br>
+        } <br>
+        h3::before{ <br>
+            counter-increment: m2-licznik; <br>
+            content: "Podrozdział " counter(m-licznik) "." counter(m2-licznik) " "; <br>
+        } <br>
+            
+        </div>
+
+    </div>
+    <script defer>
+        const btn = document.querySelector('.toggle');
+        const content = document.querySelector('.content');
+
+    btn.addEventListener('click', () => {
+        if (content.style.display === 'none') {
+            content.style.display = 'block';
+        } else {
+            content.style.display = 'none';
+        }
+    });
+    </script>
+</body>
+</html>
