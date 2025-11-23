@@ -39,6 +39,27 @@
             border-radius: 1em;
             padding: 1em;
         }
+                #powrot{
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: navy;
+            color: goldenrod;
+            padding: 10px;
+            font-size: 1.3em;
+            border: dotted firebrick;
+            border-radius: 20px;
+            margin: 10px;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:link{
+            color: goldenrod;
+        }
+        a:visited{
+            color: goldenrod;
+        }
     </style>
 </head>
 <body>
@@ -88,6 +109,10 @@
         </div>
 
     </div>
+        
+    <button id="powrot">
+        <a href="../index.html">Wróć</a>
+    </button>
     <script defer>
         const btn = document.querySelector('.toggle');
         const content = document.querySelector('.content');
