@@ -291,6 +291,40 @@ closeBtn.addEventListener("click", () =&gt; {
     });
 </script>
 
+<section>
+    <h2>Skrócony zapis span w h1, h2, h3 za pomocą :has()</h2>
+
+    <p>
+        Chcemy wybrać wszystkie &lt;span&gt;, które znajdują się w nagłówkach h1, h2 lub h3.
+        Możemy to zrobić za pomocą pseudo-klasy <dfn>:has()</dfn>.
+    </p>
+
+    <h3>CSS</h3>
+    <code><pre>
+/* Wybieramy span wewnątrz h1, h2 lub h3 */
+:has(h1, h2, h3) span {
+    color: red;
+    font-weight: bold;
+}
+    </pre></code>
+
+    <h3>HTML do testowania</h3>
+    <code><pre>
+&lt;div&gt;
+    &lt;h1&gt;Tytuł &lt;span&gt;ważny&lt;/span&gt;&lt;/h1&gt;
+    &lt;h2&gt;Inny tytuł &lt;span&gt;uwaga&lt;/span&gt;&lt;/h2&gt;
+    &lt;h3&gt;Trzeci tytuł &lt;span&gt;span&lt;/span&gt;&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;p&gt;Nie ma tu span w h1/h2/h3&lt;/p&gt;
+&lt;/div&gt;</pre></code>
+
+    <p>
+        Efekt: wszystkie span wewnątrz h1, h2 i h3 będą czerwone i pogrubione.  
+        Span w innych elementach nie zostaną zmienione.
+    </p>
+</section>
 
 <button id="powrot">
     <a href="../index.html">Wróć</a>
