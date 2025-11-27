@@ -96,10 +96,10 @@ function ustawZagadnienie(licznik, odpZagadnienie) {
     case 9: tekst = "Ćwiczenie 3"; break;
     case 10: tekst = "Nowe tagi - ważniejsze"; break;
     case 11: tekst = "progress + JS"; break;
-    case 12: tekst = "Nowe tagi - mniej ważne"; break;
+    case 12: tekst = "Stylizacja input range"; break;
     case 13: tekst = "Gradientowe napisy"; break;
-    case 14: tekst = "Stylizacja input range"; break;
-    case 15: tekst = "Nowe/ciekawe style"; break;
+    case 14: tekst = "Nowe/ciekawe style"; break;
+    case 15: tekst = "Głupotki zapychacze jak zostanie czasu."; break;
     case 16: tekst = "Zaliczenie"; break;
     default: tekst = ""; break;
   }
