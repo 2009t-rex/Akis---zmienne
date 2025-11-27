@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="PL-pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Rock+3D&display=swap" rel="stylesheet">
+    <title>No co tu patrzysz? Skończ grać!</title>
+    <style>
+        section{
+            width: 90vw;
+        }
+        .range-wrapper {
+            width: 300px;
+            margin: 25px 0;
+        }
+
+        .grupy {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        .podglad{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input[type="range"] {
+            height: 50px;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 16px;      /* grubość paska */
+            border-radius: 100px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;      /* szerokość kółka */
+            height: 25px;     /* wysokość kółka */
+            border-radius: 50%;
+            background: #333;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<h1>Dekorowanie suwaka &lt;input type="range"&gt;</h1>
+
+<section>
+    <h2>1️⃣ &lt;datalist&gt; – podziałka (tick marks)</h2>
+
+    <p>
+        Znacznik <dfn>datalist</dfn> dodaje <strong>kreski pod suwakiem</strong>, czyli tzw. tick marks.
+        Każde &lt;option value="..."&gt; tworzy jeden znacznik.
+    </p>
+
+    <p>Zalety:</p>
+    <ul>
+        <li>łatwe tworzenie podziałki;</li>
+        <li>automatyczne dopasowanie do długości suwaka;</li>
+        <li>kreski nie wymagają CSS.</li>
+    </ul>
+
+    <h3>Przykład działania:</h3>
+    <div class="podglad">
+        <input type="range" min="0" max="100" step="10" list="ticki">
+        <datalist id="ticki">
+            <option value="0"></option>
+            <option value="10"></option>
+            <option value="20"></option>
+            <option value="30"></option>
+            <option value="40"></option>
+            <option value="50"></option>
+            <option value="60"></option>
+            <option value="70"></option>
+            <option value="80"></option>
+            <option value="90"></option>
+            <option value="100"></option>
+        </datalist>
+    </div>
+    <h3>Kod:</h3>
+    <code>
+    <pre>&lt;input type="range" min="0" max="100" step="10" list="ticki"&gt;
+
+&lt;datalist id="ticki"&gt;
+    &lt;option value="0"&gt;&lt;/option&gt;
+    &lt;option value="10"&gt;&lt;/option&gt;
+    ...
+    &lt;option value="100"&gt;&lt;/option&gt;
+&lt;/datalist&gt;</pre>
+</code>
+</section>
+
+<section>
+    <h2>2️⃣ &lt;optgroup&gt; w &lt;datalist&gt; – ograniczenia</h2>
+
+    <p>
+        Można użyć <dfn>optgroup</dfn> w środku <dfn>datalist</dfn>, ale przeglądarki:
+    </p>
+
+    <ul>
+        <li><strong>ignorują etykiety grup</strong> (nie są widoczne);</li>
+        <li>pokazują tylko kreski z &lt;option&gt;;</li>
+        <li>podział na sekcje jest tylko semantyczny.</li>
+    </ul>
+
+    <h3>Przykład technicznie działający:</h3>
+    <div class="podglad">
+        <input type="range" min="0" max="100" list="podzial">
+        <datalist id="podzial">
+            <optgroup label="Nisko">
+                <option value="10"></option>
+                <option value="20"></option>
+                <option value="30"></option>
+            </optgroup>
+
+            <optgroup label="Średnio">
+                <option value="40"></option>
+                <option value="50"></option>
+                <option value="60"></option>
+            </optgroup>
+
+            <optgroup label="Wysoko">
+                <option value="70"></option>
+                <option value="80"></option>
+                <option value="90"></option>
+            </optgroup>
+        </datalist>
+    </div>
+    <h3>Kod:</h3>
+    <code>
+    <pre>&lt;datalist id="podzial"&gt;
+    &lt;optgroup label="Nisko"&gt;
+        &lt;option value="10"&gt;&lt;/option&gt;
+        &lt;option value="20"&gt;&lt;/option&gt;
+    &lt;/optgroup&gt;
+
+    &lt;optgroup label="Średnio"&gt;
+        ...
+    &lt;/optgroup&gt;
+
+    &lt;optgroup label="Wysoko"&gt;
+        ...
+    &lt;/optgroup&gt;
+&lt;/datalist&gt;</pre>
+</code>
+</section>
+
+<section>
+    <h2>3️⃣ Prawdziwe widoczne grupy – dodawane ręcznie</h2>
+
+    <p>
+        Aby użytkownik zobaczył sekcje skali, trzeba dodać je ręcznie jako zwykły HTML —
+        wtedy mamy pełną kontrolę nad wyglądem.
+    </p>
+
+    <p>Zastosowania:</p>
+    <ul>
+        <li>wizualne strefy (np. „Nisko / Średnio / Wysoko”),</li>
+        <li>czytelne opisy nad lub pod suwakiem,</li>
+        <li>możliwość stylowania CSS.</li>
+    </ul>
+
+    <h3>Przykład:</h3>
+    <div class="podglad">
+        <div class="range-wrapper">
+            <input type="range" min="0" max="100" value="50" step="10" list="ticks" style="width: 14vw;">
+
+            <div class="grupy">
+                <span>Nisko</span>
+                <span>Średnio</span>
+                <span>Wysoko</span>
+            </div>
+
+            <datalist id="ticks">
+                <option value="0"></option>
+                <option value="10"></option>
+                <option value="20"></option>
+                <option value="30"></option>
+                <option value="40"></option>
+                <option value="50"></option>
+                <option value="60"></option>
+                <option value="70"></option>
+                <option value="80"></option>
+                <option value="90"></option>
+                <option value="100"></option>
+            </datalist>
+        </div>
+    </div>
+    <h3>Kod:</h3>
+    <code>
+    <pre>&lt;div class="range-wrapper"&gt;
+    &lt;input type="range" min="0" max="100" step="10" list="ticks"&gt;
+
+    &lt;div class="grupy"&gt;
+        &lt;span&gt;Nisko&lt;/span&gt;
+        &lt;span&gt;Średnio&lt;/span&gt;
+        &lt;span&gt;Wysoko&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;datalist id="ticks"&gt;
+        &lt;option value="0"&gt;&lt;/option&gt;
+        ...
+    &lt;/datalist&gt;
+&lt;/div&gt;</pre>
+</code>
+</section>
+
+<button id="powrot">
+    <a href="../index.html">Wróć</a>
+</button>
+</body>
+</html>

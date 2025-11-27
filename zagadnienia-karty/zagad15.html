@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="PL-pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Rock+3D&display=swap" rel="stylesheet">
+    <title>Zależy mi na tym.</title>
+    <style>
+        section{
+            width: 90vw;
+        }
+        .example{
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        pre{
+            background: #222;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+
+        input[type="range"]{
+            width: 300px;
+        }
+
+        .range-box{
+            position: relative;
+            width: 350px;
+            margin-top: 30px;
+        }
+        #tooltip{
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: .1s;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Dodatki</h1>
+<h2 style="color: whitesmoke;">Ma działać z Chromem, testowane na nim. Może wyglądać inaczej zapis na FireFoxie.</h2>
+
+<!-- ========================================================= -->
+<section>
+    <h2>Stylowanie thumb — ::-webkit-slider-thumb</h2>
+
+    <p>
+        Thumb to ruchome kółko, które przeciągasz na suwaku.
+        Możemy zmieniać jego kolor, rozmiar, kształt oraz dodać mu cień.  
+        Styluje się go za pomocą pseudo-elementu:
+    </p>
+<code>
+    <pre>
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 26px;
+    height: 26px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}</pre></code>
+
+    <div class="example">
+        <p><strong>Przykład działający:</strong></p>
+        <input type="range" id="thumbDemo">
+
+        <style>
+            #thumbDemo{
+                -webkit-appearance: none;
+                background: transparent;
+            }
+            #thumbDemo::-webkit-slider-runnable-track{
+                height: 10px;
+                border-radius: 1rem;
+                background-color: cornflowerblue;
+            }
+            #thumbDemo::-webkit-slider-thumb{
+                  -webkit-appearance: none; /* Override default look */
+                    appearance: none;
+                    margin-top: -4px; /* Centers thumb on the track */
+                    background-color: #d04343;
+                    border-radius: 0.5rem;
+                    height: 1rem;
+                    width: 20px;
+            }
+            #thumbDemo:focus::-webkit-slider-thumb {
+                outline: 3px solid #d04343;
+                outline-offset: 0.125rem;
+            }
+        </style>
+    </div>
+</section>
+
+<section>
+    <h2>Kolorowa skala — gradient pod suwakiem</h2>
+
+    <p>
+        Pasek range może mieć kolorową skalę – np. czerwony → zielony.
+        Robimy to ustawiając gradient jako tło toru suwaka.
+    </p>
+<code>
+    <pre>
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 12px;
+    border-radius: 6px;
+    background: linear-gradient(to right, red, orange, yellow, limegreen, green);
+}</pre></code>
+
+    <div class="example">
+        <p><strong>Przykład:</strong></p>
+
+        <input type="range" id="gradientDemo">
+
+        <style>
+            #gradientDemo{
+                -webkit-appearance: none;
+                background: transparent;
+            }
+            #gradientDemo::-webkit-slider-runnable-track{
+                height: 12px;
+                border-radius: 6px;
+                background: linear-gradient(to right,
+                    red, orange, yellow, limegreen, green);
+            }
+            #gradientDemo::-webkit-slider-thumb{
+                -webkit-appearance: none;
+                background-color: mediumvioletred;
+                width: 22px;
+                height: 22px;
+                border-radius: 1rem;
+                border: 2px solid #333;
+                margin-top: -5px;
+            }
+            dialog{
+                border: 2px solid #333;
+                border-radius: 10px;
+                padding: 20px;
+                width: 300px;
+                align-self: center;
+                justify-self: center;
+            }
+        </style>
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<section>
+    <h2>Tooltip pokazujący wartość</h2>
+
+    <p>
+        Tooltip to mały dymek nad suwakiem pokazujący aktualną wartość.
+        Pozycja tooltipa zmienia się w zależności od położenia thumb.
+    </p>
+
+    <h3>HTML</h3>
+    <code><pre style="display: flex; align-items: center; justify-content: center;">
+<div class="range-box">
+    <input type="range" id="r" min="0" max="100" value="50">
+    <span id="tooltip">50</span>
+</div>
+    </pre></code>
+
+    <h3>CSS</h3>
+    <code><pre>
+.range-box {
+    position: relative;
+    width: 350px;
+}
+
+#tooltip {
+    position: absolute;
+    top: -35px;
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+}</pre></code>
+
+    <h3>JavaScript</h3>
+    <code><pre>
+const r = document.getElementById("r");
+const tooltip = document.getElementById("tooltip");
+
+r.addEventListener("input", () => {
+    tooltip.textContent = r.value;
+
+    const percent = (r.value - r.min) / (r.max - r.min);
+    tooltip.style.left = `calc(${percent * 100}% )`;
+});</pre></code>
+
+</section>
+
+<section>
+    <h3>Stylizowanie range - strona</h3>
+    <p>Jeśli ktoś chce sobie popróbować stylizowania tego w łatwy sposób to tutaj link i nazwa strony:</p>
+    <p>https://range-input-css.netlify.app/</p>
+    <a href="https://range-input-css.netlify.app/">Range Input CSS Generator by Netlify</a>
+</section>
+
+<section>
+    <h3>Rozszerzenie&lt;dialog&gt;</h3>
+    <p>
+        Powtórka - 
+        znacznik <dfn>&lt;dialog&gt;</dfn> pozwala tworzyć wyskakujące okna (modalne lub niestandardowe).  
+        Możemy je otwierać, zamykać i stylować.  
+        Działa dobrze w nowoczesnych przeglądarkach.
+    </p>
+
+    <h2>HTML</h2>
+    <code><pre>
+&lt;dialog id="myDialog"&gt;
+    &lt;p&gt;To jest przykładowe okno dialogowe.&lt;/p&gt;
+    &lt;button id="closeDialog"&gt;Zamknij&lt;/button&gt;
+&lt;/dialog&gt;
+
+&lt;button id="openDialog"&gt;Otwórz dialog&lt;/button&gt;</pre></code>
+
+    <h2>CSS</h2>
+    <code><pre>
+dialog {
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+}
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}</pre></code>
+
+    <h2>JavaScript</h2>
+    <code><pre>
+const myDialog = document.getElementById("myDialog");
+const openBtn = document.getElementById("openDialog");
+const closeBtn = document.getElementById("closeDialog");
+
+openBtn.addEventListener("click", () =&gt; {
+    myDialog.showModal(); // otwiera dialog modalny
+});
+
+closeBtn.addEventListener("click", () =&gt; {
+    myDialog.close(); // zamyka dialog
+});</pre></code>
+
+    <h2>Przykład działający</h2>
+    <dialog id="myDialog">
+        <p>To jest przykładowe okno dialogowe.</p>
+        <button id="closeDialog">Zamknij</button>
+    </dialog>
+
+    <button id="openDialog">Otwórz dialog</button>
+</section>
+
+<script>
+    const myDialog = document.getElementById("myDialog");
+    const openBtn = document.getElementById("openDialog");
+    const closeBtn = document.getElementById("closeDialog");
+
+    openBtn.addEventListener("click", () => {
+        myDialog.showModal();
+    });
+
+    closeBtn.addEventListener("click", () => {
+        myDialog.close();
+    });
+    const r = document.getElementById("r");
+    const tooltip = document.getElementById("tooltip");
+
+    r.addEventListener("input", () => {
+        tooltip.textContent = r.value;
+
+        const percent = (r.value - r.min) / (r.max - r.min);
+        tooltip.style.left = `calc(${percent * 100}% )`;
+    });
+</script>
+
+
+<button id="powrot">
+    <a href="../index.html">Wróć</a>
+</button>
+</body>
+</html>

@@ -228,6 +228,7 @@ mark {
         Znacznik &lt;dialog&gt; służy do tworzenia natywnych,
         wbudowanych w HTML okien dialogowych (modalnych i niemetalnych).
         Można je otwierać i zamykać za pomocą JavaScriptu.
+        Niestety nie będziemy ich jeszcze omawiać dogłebnie, bo to jest w zagadnieniu galeria, ale jeśli ktoś chce na własną ręke W3Schools ma to dobry przykład tego.
     </p>
 
     <h2>Przykład podstawowy</h2>
@@ -246,6 +247,124 @@ mark {
     </p>
 
 </details>
+
+<details>
+    <summary>&lt;meter&gt; — wskaźnik wartości</summary>
+
+    <p>
+        Znacznik &lt;meter&gt; pokazuje wartość liczbową w określonym zakresie
+        (np. poziom paliwa, temperatury, wydajność).  
+        Używany do pomiarów — nie do pokazywania postępu zadania.
+    </p>
+
+    <h2>Podstawowy przykład</h2>
+    <label for="paliwo">Poziom paliwa:</label>
+    <meter id="paliwo" value="0.6" min="0" max="1">60%</meter>
+
+    <h2>Przykład z progami (low / high / optimum)</h2>
+    <label for="temp">Temperatura silnika:</label>
+    <meter id="temp" value="95" min="0" max="150" low="60" high="120" optimum="90">
+        95 / 150
+    </meter>
+
+    <h2>Dynamiczna zmiana w JavaScript</h2>
+    <pre>
+const m = document.getElementById('paliwo');
+m.value = 0.2;
+m.textContent = Math.round(m.value * 100) + "%";</pre>
+
+    <h2>Różnica między &lt;meter&gt; a &lt;progress&gt;</h2>
+    <ul>
+        <li>&lt;meter&gt; — pomiar w skali (np. jakość, poziom, wynik).</li>
+        <li>&lt;progress&gt; — postęp zadania (np. ładowanie, upload).</li>
+    </ul>
+    <details style="font-size: 1.1em; width: 70vw;">
+    <summary>Atrybuty low / high / optimum</summary>
+
+    <p>
+        Znacznik &lt;meter&gt; może pokolorować pasek inaczej w zależności od wartości.
+        Służą do tego trzy atrybuty:
+    </p>
+
+    <h2>🔹 low</h2>
+    <p>
+        Wartość poniżej low uznawana jest za <strong>złą / niską</strong>.  
+        Przeglądarka może pokazać pasek w innym kolorze (np. żółtym lub czerwonym).
+    </p>
+
+    <h2>🔹 high</h2>
+    <p>
+        Wartość powyżej high jest traktowana jako <strong>wysoka</strong>  
+        i również może zmienić kolor wskaźnika.
+    </p>
+
+    <h2>🔹 optimum</h2>
+    <p>
+        Określa wartość, która jest <strong>idealna</strong>.  
+        Przeglądarka porównuje aktualną wartość z optimum, by zdecydować,
+        czy wynik jest dobry czy zły.
+    </p>
+
+    <h2>Jak to działa razem?</h2>
+    <p>
+        Przykład przedstawia temperaturę silnika:<br>
+        • poniżej 60 → za zimny (low)<br>
+        • 60–120 → OK (normalny zakres)<br>
+        • powyżej 120 → przegrzanie (high)<br>
+        • optimum = 90 → najlepsza temperatura
+    </p>
+
+    <meter value="95" min="0" max="150" low="60" high="120" optimum="90">
+        95 / 150
+    </meter>
+
+    <h2>Zasada ogólna</h2>
+    <p>
+        low, high i optimum NIE zmieniają wartości —  
+        one tylko mówią przeglądarce, które zakresy są:
+    </p>
+
+    <ul>
+        <li>⚠️ niebezpieczne (złe)</li>
+        <li>🟡 średnie</li>
+        <li>🟢 dobre (optymalne)</li>
+    </ul>
+</details>
+</details>
+
+<details>
+    <summary>Pełna lista znaczników HTML</summary>
+
+    <p>
+        HTML posiada bardzo dużo znaczników i trudno wszystkie zapamiętać. 
+        <strong>Nie musimy ich zapa miętywać!!</strong>
+        Istnieją od tego strony np. W3Schools, który posiada <strong>kompletną listę elementów HTML</strong>.
+        Spis jest przejrzysty i łatwo dostępny.
+    </p>
+
+    <p>
+        Lista zawiera m.in.:
+    </p>
+
+    <ul>
+        <li>znaczniki tekstowe (np. &lt;p&gt;, &lt;span&gt;, &lt;strong&gt;)</li>
+        <li>strukturalne (np. &lt;header&gt;, &lt;footer&gt;, &lt;main&gt;)</li>
+        <li>formularzy (np. &lt;input&gt;, &lt;label&gt;, &lt;select&gt;)</li>
+        <li>medialne (np. &lt;img&gt;, &lt;audio&gt;, &lt;video&gt;)</li>
+        <li>interaktywne (&lt;details&gt;, &lt;summary&gt;, &lt;dialog&gt;)</li>
+        <li>tabel (np. &lt;table&gt;, &lt;tr&gt;, &lt;td&gt;)</li>
+        <li>i wiele, wiele innych…</li>
+    </ul>
+
+    <p>
+        ➤ Pełną listę znajdziesz tutaj:  
+        <a href="https://www.w3schools.com/tags/default.asp" target="_blank">
+            W3Schools – HTML Tags Reference
+        </a>
+    </p>
+
+</details>
+
 <button id="powrot">
     <a href="../index.html">Wróć</a>
 </button>
