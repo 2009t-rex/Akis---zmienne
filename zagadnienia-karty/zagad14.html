@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        font-family: monospace;
+        color: black;
+    }
+    h1{
+        text-align: center;
+    }
+    body{
+        background:linear-gradient(rgb(161, 161, 161),rgb(25, 25, 25));
+        background-repeat: no-repeat;
+        height: 100%;
+        color-scheme: dark;
+    }
+    .definicja{
+        border: 2px dashed black;
+        border-radius: 1em;
+        background: linear-gradient(rgb(255, 255, 255), rgb(255, 0, 0));
+        font-size: 20px;
+        padding: 1em;
+        text-align: justify;
+        margin: 1em;
+        box-shadow: 5px 5px 12px;
+    }
+    .definicja:hover{
+        box-shadow: none;
+        transition: 0.4s;
+    }
+
+    .checkbox {
+        accent-color: red;
+    }
+    .radio {
+        accent-color: green;
+    }
+    .range {
+        accent-color: blue;
+    }
+    .mask {
+        mask: url(zsl.png) no-repeat 50% 50%;
+    }
+    .smol1, .smol2, .smol3{
+        border: 2px solid black;
+        border-radius: 1em;
+        width: 33%;
+        padding: 1em;
+        margin: 1em;
+        align-items: center;
+        text-align: center;
+    }
+    .big{
+        display: flex;
+        flex-direction: row;
+    }
+    .smol3 > p{
+        text-align: justify;
+    }
+    img{
+        width: 100%;
+    }
+    .kwiatki{
+        background-image: url(DSC07718.JPG);
+        background-size: 100%;
+        height: 1000px;
+        background-repeat: no-repeat;
+        border-radius: 1em;
+    }
+    .backdrop{
+        background-color: rgba(255, 255, 255, 0.4);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        padding: 1em;
+    }
+    .zoom{
+        zoom: 200%;
+    }
+    </style>
+</head>
+<body>
+    <div class="definicja">
+        <h1>Nowe/ciekawe tagi i style.</h1>
+        <br>
+        <hr>
+        <br>
+        <h1>Accent-color</h1>
+        <p>Accent-color w CSS służy do zmiany domyślnego koloru elementów formularza, takich jak: checkbox, radio, range i progress.
+            Ułatwia szybkie dopasowanie ich wyglądu do motywu strony bez tworzenia własnych, skomplikowanych styli.</p>
+            <div class="big">
+            <div class="smol1">        
+                <h2>Domyślna kolorystyka:</h2>
+                <input type="checkbox">
+                <input type="radio">
+                <input type="range"></div>
+            <div class="smol2">
+                <h2>Nie domyślna kolorystyka:</h2>
+                <input type="checkbox" class="checkbox">
+                <input type="radio" class="radio">
+                <input type="range" class="range"></div>
+            <div class="smol3">
+                <h2>kod</h2>
+                <p><code>
+                    .checkbox {<br>
+                        accent-color: red;<br>
+                    }<br>
+                    .radio {<br>
+                        accent-color: green;<br>
+                    }<br>
+                    .range {<br>
+                        accent-color: blue;<br>
+                    }<br>
+                </code></p>
+            </div>
+            </div>
+            <hr>
+            <h1>Color-scheme</h1>
+            <p>Dzięki color-scheme przeglądarka sama dopasuje domyślne elementy UI (np. formularze, scroll-bar, tła systemowe) do właściwego motywu, np.:</p>
+            <ul>
+                <li>color-scheme: dark; - ustawia na stronie tryb ciemny.</li>
+                <li>color-scheme: light dark; - ustawia tryb automatycznie.</li>
+            </ul>
+            <img src="Zrzut ekranu 2025-11-27 230830.png" alt="">
+            <br>
+            <br>
+            <hr>
+            <br>
+            <h1>Backdrop-filter</h1>
+            <p>Backdrop-filter w CSS dodaje efekty graficzne na to, co znajduje się za elementem, np. rozmycie, przyciemnienie lub nasycenie.
+                Najczęściej używa się go do efektu szklanego tła (glass effect).
+                Działa tylko gdy element ma przeźroczystość (np. rgba lub opacity).</p>
+            <h2>Kod</h2>
+            .backdrop{ <br>
+                background-color: rgba(255, 255, 255, 0.4);<br>
+                -webkit-backdrop-filter: blur(5px); <br>
+                backdrop-filter: blur(5px); <br>
+            } <br>
+            <br>
+            <div class="kwiatki">
+                <div class="backdrop">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, voluptatibus porro debitis beatae temporibus, ad nisi rerum vel ullam adipisci vero molestias? Aperiam, tempore beatae consequuntur minus rem optio fugit?
+                    Veniam, recusandae. Perspiciatis, consequatur quam beatae dolore eum culpa facilis dolores. Porro eos qui libero similique et. Eligendi veniam voluptates fugit! Est possimus at reprehenderit debitis! Quidem ducimus autem a.
+                    Odit quam, totam rerum asperiores labore sequi ipsum corrupti. Alias minus beatae veniam nostrum aut voluptatem? Voluptatem asperiores totam dicta hic numquam atque distinctio explicabo assumenda fuga iusto. Voluptates, tenetur.
+                    Voluptas voluptates, mollitia accusantium doloremque reiciendis sed facere ab aliquam totam laudantium aliquid, exercitationem necessitatibus quisquam sit optio, excepturi impedit doloribus nulla iste corporis dignissimos qui! Sed enim molestias nobis!
+                    Beatae corporis quos sint voluptate veritatis cumque aspernatur tenetur incidunt deleniti illo at sed error autem quibusdam, dolorem, magni esse, adipisci soluta quam. Architecto quos ad, qui voluptates facere id!
+                    Vitae voluptatibus, rerum pariatur tenetur, magnam cum, eum exercitationem dicta impedit in eaque cumque nemo dignissimos quis. Itaque magnam maiores, est adipisci deleniti illum impedit minima, magni, alias ipsa voluptatem.
+                    Corrupti laboriosam non velit eaque sequi fugiat nulla quis, eum enim incidunt repellat dignissimos totam deleniti distinctio ipsam consequatur, esse nemo unde quia saepe. Repellendus accusamus earum optio illo deserunt!
+                    Eligendi et modi iusto, accusantium libero veritatis tenetur perferendis quidem nihil distinctio animi eos, sunt repellendus non. Odit consectetur nulla ipsam maiores quia doloribus fuga unde iure blanditiis, aliquam ea?
+                    Perspiciatis eligendi assumenda, corrupti obcaecati recusandae, sit dignissimos molestiae qui quibusdam debitis est! In, tenetur. Facere obcaecati labore quo consequuntur repellat eum aliquam, pariatur, fuga veritatis ratione sapiente iste odit!
+                    Vero nesciunt natus, nam provident harum odit, blanditiis labore ut aliquid ducimus cumque, deleniti deserunt! Pariatur eius consequuntur ipsum, nulla totam eveniet quidem, molestias nam tempore, repudiandae similique? Quaerat, sit.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dignissimos consequuntur incidunt perferendis odio iure ullam inventore, sequi molestias explicabo, quod consequatur, veritatis et dolor itaque? Facilis fuga debitis ullam.
+                    Eligendi eum architecto omnis, veritatis dolor cupiditate ratione, deleniti saepe reiciendis pariatur aliquid! Eos qui accusamus voluptatum non doloribus esse officia quasi. Accusantium et quis illum, minima odit recusandae quia?
+                    Minima illo rem eveniet molestiae a optio corporis nesciunt consectetur tempora? Neque animi quaerat mollitia minus vitae suscipit alias omnis, voluptatibus temporibus adipisci, at ipsum placeat autem odit ullam! Ab!
+                    Odit quis accusamus voluptas impedit, eos incidunt! Tenetur ut nemo laborum aperiam quo accusamus expedita animi eius explicabo perspiciatis, ea consequatur sit cumque earum nesciunt eaque labore! Vero, ipsa ut!
+                    Laborum, dolor voluptas. Iure, perspiciatis. Quam aut adipisci tempore. Quod hic illum ad blanditiis harum eos id, fugit similique error, perferendis vero? Aut nemo architecto blanditiis ducimus! Earum, repellat distinctio.
+                </div>
+            </div>
+            <br>
+            <br>
+            <hr>
+            <br>
+            <h1>Mask</h1>
+            <p>W CSS mask pozwala ukrywać lub pokazywać fragmenty elementu według kształtu maski (np. gradient lub obrazek).
+                Maska działa jak szablon. Używa się jej do efektów wycinania kształtów bez edytowania obrazów.</p>
+            <img src="DSC07720.JPG" alt="">
+            <h2>Kod</h2>
+            <p> .mask { <br>
+                     mask: url(zsl.png) no-repeat 50% 50%; <br>
+                } <br> <br>
+            50% 50% oznacza, że maskę przycinamy ze środka obrazka.</p>
+            <div class="mask">
+                <img src="DSC07720.JPG" alt="">
+            </div>
+            <hr>
+            <br>
+            <h1>Zoom</h1>
+            <p>Zoom to właściwość, która skaluję wizualnie element razem z jego treścią i układem, jakbyś powiększył go w przeglądarce. </p>
+            <br>
+            <h1>Naglowek - zoom: 100%; (domyślnie)</h1>
+            <h1 class="zoom">Naglowek - zoom: 200%;</h1>
+    </div>
+</body>
+</html>
